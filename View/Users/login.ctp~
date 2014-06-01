@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>ログインフォーム</title>
+ <?php echo $this->Html->css('login_form'); ?>
+</head>
+<body>
+<div id="viewbase">
+     <div class="login_box">
+     <h2>ログイン</h2>
+     <div class="login_form">
+	 <?php
+     echo $this->Session->flash('auth');
+?>
+<?php
+echo $this->Form->create('User', array('url' => 'login'));
+?>
+<?php
+echo $this->Form->input('user_code', array('label' => 'ユーザ名'));
+?>
+<?php
+echo $this->Form->input('password', array('label' => 'パスワード'));
+?>
+<?php
+echo $this->Form->end('ログイン');
+?>
+	</div>
+	<div class="illust_box">
+    <img src="./img/toplogo.gif" />
+	</div>
+    </div>
+    </div>
+    </body>
+    </html>
+
+
+

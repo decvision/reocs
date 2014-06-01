@@ -1,0 +1,25 @@
+<p>ようこそ！<?php echo h($userinfo['user_name']); ?> さん</p>
+<p>あなたの登録メールアドレスは<?php echo h($userinfo['mail_address']); ?>です。</p>
+<h2> ここはIndexページです</h2>
+<ul>
+<li>
+ <?php echo $this->Html->link('ログアウト', 'logout', array(), 'ログアウトしてもいいですか？'); ?>
+</li>
+<li>
+ <?php echo $this->Html->link('新規ユーザ作成', 'add', array()); ?>
+</li>
+<?php echo $this->Form->create('Character', array('type' => 'file')); ?>
+    <?php echo $this->Form->input('Character.character_name'); ?>
+    <?php echo $this->Form->input('Character.image', array('type' => 'file')); ?>
+ <?php echo $this->Form->input('Character.image_path', array('type' => 'hidden')); ?>
+ <?php echo $this->Form->input('Character.user_code', array('value' => h($userinfo['user_code']), 'type' => 'hidden')); ?>
+ <?php echo $this->Form->input('Character.color', array('value'=>'Black', 'type' => 'hidden')); ?>
+ <?php echo $this->Form->end('Submit'); ?>
+
+ <?php foreach($new_images as $new_image): ?>
+
+ <?php header('Content-Type: image/jpeg');
+echo $this->Html->image( 'Character/'.$new_image['Character']['image_path'].'/thumb150_'.$new_image['Character']['image'], array('alt' => 'b')); ?>
+ <?php endforeach ?>
+
+</ul>

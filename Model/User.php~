@@ -1,0 +1,41 @@
+<?php
+class User extends AppModel{
+    // モデル名の指定
+    public $name = 'User';
+    // バリデーションの設定
+    public $validate = array(
+                             'user_code' => array(
+                                                 'required' => array(
+                                                                     'rule' => array('notEmpty'),
+                                                                     'message' => 'ユーザIDを入力してください'
+                                                                     )
+                                                 ),
+                             'user_name' => array(
+                                                 'required' => array(
+                                                                     'rule' => array('notEmpty'),
+                                                                     'message' => 'ユーザ名を入力してください'
+                                                                     )
+                                                 ),
+                             'password' => array(
+                                                 'required' => array(
+                                                                     'rule' => array('minLength', 4),
+                                                                     'message' => 'パスワードは4文字以上にしてください'
+                                                                     )
+                                                 ),
+                             'mail_address' => array(
+                                                    'required' => array(
+                                                                        'rule' => array('email'),
+                                                                        'message' => 'メールアドレスを入力してください'
+                                                                        )
+                                                    ),
+                             );
+
+    // 保存前にハッシュ値変換を行います
+    public function beforeSave($option=array()){
+        if(isset($this->data[$this->alias]['password'])){
+            $this->data[$this->alias]['password'] = AuthComponent::password($this->data[$this->alias]['password']);
+        }
+        return true;
+    }
+}
+                                                                                     
