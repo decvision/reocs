@@ -29,7 +29,7 @@ class UploadBehavior extends ModelBehavior {
 		'fields' => array('dir' => 'dir', 'type' => 'type', 'size' => 'size'),
 		'mimetypes' => array(),
 		'extensions' => array(),
-		'maxSize' => 2097152,
+		'maxSize' => 10485760, //10MB,
 		'minSize' => 8,
 		'maxHeight' => 0,
 		'minHeight' => 0,

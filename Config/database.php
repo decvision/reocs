@@ -68,6 +68,7 @@ class DATABASE_CONFIG {
 		'login' => 'root',
 		'password' => 'root',
 		'database' => 'reoc',
+		'encoding' => 'utf8',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

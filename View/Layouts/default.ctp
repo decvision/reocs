@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
 <html lang="en">
 <head>
 	<meta charset="utf-8">
@@ -6,12 +6,15 @@
 		REOC - 
 		<?php echo $title_for_layout; ?>
 	</title>
+	<!-- レスポンシブ無効 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
 
 	<!-- Le styles -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<?php echo $this->Html->css('bootstrap.min.css'); ?>
+	<?php echo $this->Html->css('non-responsive.css'); ?>
+	
 	<style>
 	body {
 		padding-top: 70px; /* 70px to make the container go all the way to the bottom of the topbar */
@@ -20,7 +23,9 @@
 		position: fixed;
 		top: 60px;
 		width: 220px;
-	}
+	} 
+
+
 	</style>
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -29,9 +34,19 @@
 	<![endif]-->
 
 	<?php
+	echo $this->fetch('script');
 	echo $this->fetch('meta');
 	echo $this->fetch('css');
 	?>
+
+	<!-- Le javascript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<?php echo $this->Html->script('jquery-1.11.1.min.js'); ?>
+	<?php echo $this->Html->script('jquery.carouFredSel-6.2.1-packed.js'); ?>
+	<?php echo $this->Html->script('bootstrap.min.js'); ?>
+
+	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 </head>
 
 <body>
@@ -71,14 +86,6 @@
 		<?php echo $this->fetch('content'); ?>
 
 	</div><!-- /container -->
-
-	<!-- Le javascript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-	<script src="//google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
-	<?php echo $this->fetch('script'); ?>
 
 </body>
 </html>

@@ -125,3 +125,5 @@ CakeLog::config('error', array(
 
 CakePlugin::load(array('BoostCake', 'DebugKit', 'Search', 'Upload'));
 
+Configure::load("constants");
+

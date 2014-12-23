@@ -1,0 +1,187 @@
+/* User#index */
+.carou-base{
+	margin: 0px auto;
+	width: 780px;
+	height: 250px;
+}
+.thumb-wrapper {
+    margin:20px auto;
+    padding:10px 20px;
+    background-color:#ddd;
+    width:748px;
+    height:170px;
+    overflow:visible;
+    position: relative;
+}
+.carouPrev, .carouNext {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    top: 60px;
+    cursor: pointer;
+}
+.carouPrev {
+    left: -30px;
+    background: url("../img/prev.png") no-repeat;
+    background-position: 0 0;
+}
+.carouNext {
+    right: -30px;
+    background: url("../img/next.png") no-repeat;
+    background-position: 0 0;
+}
+
+.carouPrev:hover, .carouNext:hover {
+    background-position: 0 -50px;
+}
+.carouPrev.disabled , .carouNext.disabled {
+    cursor: default;
+    background-position: 0 -100px;
+}
+
+ul.carousel{
+	margin:0;
+	padding:0;
+}
+ul.carousel li{
+	list-style:none;
+	display:block;
+	float:left;
+}
+ul.carousel img{
+	margin:5px 3px 1px 3px;
+}
+ul.carousel img:hover{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+
+/* Chara#cList */
+
+#left-column{
+
+}
+
+#left-column.checkbox{
+	display: block;
+	float: left;
+	width: 110px;
+}
+
+table.rect{
+	background-color:#DDDDDD;
+	width: 98%;
+	height: 260px;
+	margin:2px;
+}
+td.image{
+	text-align:center;
+	width: 200px; 
+	height: 200px; 
+	vertical-align:middle;
+}
+td.image img:hover{
+	filter:alpha(opacity=80);
+	opacity:0.8;
+}
+td.text{
+	height:20px;
+}
+p.charaName{
+	font-size: 16px; 
+	font-weight: bold; 
+	margin-left:10px;
+}
+p.artist{
+	font-size: 12px; 
+	font-color: #888888; 
+	font-style: italic;  
+	margin-left:10px;
+}
+
+/* User#profile */
+
+div#left-column{
+	padding: 5px;
+}
+
+div#left-column #profile-card{
+	background-color: #DDD;
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+div#left-column #status{
+	background-color: #DDD;
+	height: 600px;
+	display: block;
+	overflow: hidden;
+}
+
+div#right-column{
+	padding: 5px;
+}
+
+div.characters-area{
+	background-color: #DDD;
+	height: 380px;
+	display: block;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+
+div.characters-area div#status, p.label{
+	display: block;
+	text-align: left;
+	font-size: 28px;
+	font-weight: bold;
+	color: #000;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div.characters-area ul{
+	display: block;
+	list-style: none;
+	margin-left: -25px;
+}
+
+div.characters-area li{
+	display: block;
+	float: left;
+}
+
+div.characters-area p.more{
+	display: block;
+	font-size: 16px;
+	color: #000;
+	margin-right: 10px;
+	margin-top: 280px;
+	margin-left: 80%;
+	position: absolute;
+}
+
+/* Chara#view */
+
+div.comment-area{
+	display: block;
+	height: 200px;
+	width: 100%;
+}
+
+div.comment-area textarea{
+	display: block;
+	resize: none;
+	overflow: auto;
+	height: 100px;
+	width: 100%;
+}
+
+div.comment-area ul{
+	display: block;
+	list-style: none;
+	overflow-y: auto; 
+}
+
+

@@ -1,8 +1,8 @@
 <?php
 class UsersController extends AppController{
     // 使用モデルの指定
-    public $uses = array('User', 'Character');
-    public $helpers = array('Html');
+    public $uses = array('User');
+    public $helpers = array('Html', 'Chara');
     
     function beforeFilter(){
         // 親クラスのbeforeFilterの読み込み
@@ -17,8 +17,6 @@ class UsersController extends AppController{
 
         // アクセス情報をビューに渡す
         $this->set('userinfo', $this->Auth->user());
-
-        
     }
 
     // ログインアクション（認証不要）
@@ -60,6 +58,19 @@ class UsersController extends AppController{
                 $this->Session->setFlash(__('登録できませんでした。やり直してください。'));
             }
         }
+    }
+
+    function profile($user_code = null){
+        if($user_code == null){
+            $this->redirect('/pages/notfound');
+            return;
+        }
+        $user = $this->User->find('first', array('conditions' => array('User.user_code' => $user_code)));
+        if($user == null){
+            $this->redirect('/pages/notfound');
+            return;    
+        }
+        $this->set('user', $user);
     }
 }
                 

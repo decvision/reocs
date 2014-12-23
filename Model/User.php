@@ -3,7 +3,7 @@ class User extends AppModel{
     // モデル名の指定
     public $name = 'User';
     // 主キー
-    public $primaryKey = 'user_id';
+    public $primaryKey = 'id';
     // バリデーションの設定
     public $validate = array(
                              'user_code' => array(
