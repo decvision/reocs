@@ -81,11 +81,20 @@
 		</div>
 	</nav>
 	
+	<!-- container -->
 	<div class="container">
 
 		<?php echo $this->fetch('content'); ?>
+		
+		<div id='push'></div>
+	</div>
 
-	</div><!-- /container -->
+	<!-- footer -->
+	<div id='footer'>
+		<div style='text-align:center; background-color: #DDD; height:100px; margin-top:100px;'>
+			<p>Copyright &copy; 2014 BIBIT Applications All Rights Reserved.</p>
+		</div>
+	</div>
 
 </body>
 </html>
