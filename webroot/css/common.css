@@ -166,22 +166,46 @@ div.characters-area p.more{
 
 div.comment-area{
 	display: block;
-	height: 200px;
 	width: 100%;
 }
 
 div.comment-area textarea{
 	display: block;
-	resize: none;
-	overflow: auto;
-	height: 100px;
+	height: 108px;
 	width: 100%;
+	resize: none;
+	margin-bottom: 10px
+}
+
+div.comment-area input.submit{
+	margin-bottom: 30px;
+	margin-right: 160px;
+	float: left;
 }
 
 div.comment-area ul{
 	display: block;
+	padding: 0px;
+	height: 300px;
+	width: 100%;
 	list-style: none;
 	overflow-y: auto; 
 }
 
+div.comment-area p.poster{
+	display: block;
+	font-size: 16px;
+	color: #000;
+}
 
+div.comment-area hr{
+	height: 2px;
+}
+
+
+/* COMMON */
+
+/* float解除 */
+div.clear{
+	clear: both;
+}

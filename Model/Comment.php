@@ -9,8 +9,11 @@
 		public $belongsTo = array(
 			'refChara' => array(
 				'className' => 'Chara',
-				'foreignkKey' => 'chara_id',
-				));
+				'foreignKey' => 'chara_id',
+				),
+			'refUser' => array(
+				'className' => 'User',
+				'foreignKey' => 'user_id'));
 
 		// 主キー
 		public $primaryKey = 'id';

@@ -1,3 +1,4 @@
+<?php echo $this->Html->css('common'); ?>
 <div class="row">
 	<div class="col-xs-12">
 		<div class="col-xs-8">
@@ -50,16 +51,23 @@
 			<!-- Comment -->
 			<div class='comment-area'>
 				<?php 
-				echo $this->Form->create('Comment', array('action'=>'add', 'type' => 'post', 'div'=>false));
-				echo $this->Form->textarea('status', array('label'=>'コメント', 'type' => 'textarea'));
+				echo $this->Form->create('Comment', array('action'=>'add', 'type' => 'post'));
+				echo $this->Form->textarea('status', array('label'=>'コメント', 'maxLength'=>100));
 				echo $this->Form->input('Comment.chara_id', array('type'=>'hidden', 'value'=>$chara_data['Chara']['id']));
 				echo $this->Form->input('Comment.user_id', array('type'=>'hidden', 'value'=>$login_user['id']));
-				echo $this->Form->end('コメント'); 
+				echo $this->Form->end(array('label'=>'コメント', 'class'=>'submit')); 
 				?>
+				<p　class='count'>残り<span class='count'>100</span>文字</p>
+				<div class='clear'></div>
 				<ul>
 					<?php foreach ($chara_data['comments'] as $comment): ?>
 						<li>
+							<?php echo $this->Form->postLink($this->Html->para('poster', $comment['refUser']['user_name']), array( 
+								'controller' => 'users',
+								'action' => 'profile',
+								$comment['refUser']['user_code']), array('escape' => false)); ?>
 							<?php echo __($comment['status']) ?>
+							<hr>
 						</li>
 					<?php endforeach; ?>
 				</ul>
@@ -67,3 +75,26 @@
 		</div>
 	</div>
 </div>
+
+
+
+<!-- SCLIPT -->
+<script>
+$(function(){
+	var countMax = 100;
+	$('div.comment-area textarea').bind('keydown keyup keypress change',function(){
+		var thisValueLength = $(this).val().length;
+		var countDown = (countMax)-(thisValueLength);
+		$('div.comment-area span.count').html(countDown);
+
+		if(countDown < 0){
+			$('div.comment-area span.count').css({color:'#ff0000',fontWeight:'bold'});
+		} else {
+			$('div.comment-area span.count').css({color:'#000000',fontWeight:'normal'});
+		}
+	});
+	$(window).load(function(){
+		$('.count').html(countMax);
+	});
+});
+</script>

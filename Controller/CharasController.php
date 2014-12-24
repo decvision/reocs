@@ -50,7 +50,8 @@ class CharasController extends AppController{
         if($id != null){
             $chara_data = $this->Chara->find('first', array(
                 'conditions' => array(
-                    'Chara.id' => $id)));
+                    'Chara.id' => $id),
+                'recursive' => 2));
             if($chara_data != null){
                 // 閲覧数+1
                 $view_count = $chara_data['Chara']['view_count'] + 1;

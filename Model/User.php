@@ -45,5 +45,15 @@ class User extends AppModel{
         $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
         return true;
     }
+
+    // ユーザIDからユーザ名を取得します
+    public function getUserName($id=null){
+        if( $id == null){
+          return null;
+        }
+        return $this->find('first', array(
+          'conditions' => array('User.id' => $id),
+          'fields' => array('user_name')));
+    }
 }
                                                                                      

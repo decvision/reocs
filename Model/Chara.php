@@ -13,7 +13,10 @@ class Chara extends AppModel{
                         ));
     public $hasMany = array(
       'comments' => array('className' => 'Comment',
-                          'foreignKey' => 'chara_id'
+                          'foreignKey' => 'chara_id',
+                          // コメントは最新順で取得
+                          'order' => 'comments.created desc',
+                          'limit' => 20
                           ));
 
     // 定数定義
